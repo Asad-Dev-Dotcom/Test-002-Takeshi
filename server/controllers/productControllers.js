@@ -68,13 +68,16 @@ export const getTopRated = async (req, res) => {
 //Get best Sellers
 export const getBestSellers = async (req, res) => {
     try {
-        const products = await Products.find()
-            .sort({ reviews: -1 })
-            .limit(12);
+        // Top brands: Adidas, Nike, Skechers, Puma
+        const topBrands = ['Adidas', 'Nike', 'Skechers', 'Puma'];
+
+        const products = await Products.find({
+            brand: { $in: topBrands }
+        }).limit(12);
 
         return res.status(200).json(products);
     } catch (err) {
-        console.error('Error fetching top-rated shoes:', err.message);
+        console.error('Error fetching best sellers:', err.message);
         res.status(500).send('Internal Server Error');
     }
 }
