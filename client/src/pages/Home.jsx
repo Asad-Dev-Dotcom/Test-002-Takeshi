@@ -9,7 +9,7 @@ const Home = () => {
       <Carousel />
       <GenInfo />
       <Brands />
-      {/* added best sellers from top brands task 1 */}
+      {/* added best sellers from top brands task 1 --- */}
       <BestSellersFromTopBrands title="Best Sellers" />
       <ShopBy title="Top Rated" />
     </div>
